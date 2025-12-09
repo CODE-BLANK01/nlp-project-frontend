@@ -1,143 +1,3 @@
-// import { Button } from "../components/ui/Button";
-// import { Link } from "react-router-dom";
-// import { motion } from "framer-motion";
-// import { useAuth } from "../context/AuthContext";
-// import { Brain, MessageSquare, Lock, Clock, Users } from "lucide-react";
-
-// export default function Landing() {
-//   const { user, logout } = useAuth();
-
-//   return (
-//     <div className="flex flex-col min-h-screen bg-white">
-//       {/* Navbar */}
-//       <nav className="flex items-center justify-between px-8 py-4 shadow-sm bg-white sticky top-0 z-50">
-//         <h1 className="text-2xl font-bold">Jarvis</h1>
-//         <div className="flex gap-4">
-//           {!user ? (
-//             <>
-//               <Link to="/login">
-//                 <Button>Login</Button>
-//               </Link>
-//               <Link to="/login">
-//                 <Button className="bg-gray-800 hover:bg-black">Get Started</Button>
-//               </Link>
-//             </>
-//           ) : (
-//             <>
-//               <Link to="/app">
-//                 <Button>Go to Dashboard</Button>
-//               </Link>
-//               <Button onClick={logout} className="bg-gray-200 text-black hover:bg-gray-300">
-//                 Logout
-//               </Button>
-//             </>
-//           )}
-//         </div>
-//       </nav>
-
-//       {/* Hero */}
-//       <motion.header
-//         initial={{ opacity: 0, y: 30 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.8 }}
-//         className="flex-1 flex flex-col items-center justify-center text-center px-6 py-32 bg-gradient-to-b from-gray-50 to-white"
-//       >
-//         <motion.h1
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.2, duration: 0.8 }}
-//           className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight"
-//         >
-//           Jarvis – Your AI Workday Assistant
-//         </motion.h1>
-//         <motion.p
-//           initial={{ opacity: 0 }}
-//           animate={{ opacity: 1 }}
-//           transition={{ delay: 0.4, duration: 0.8 }}
-//           className="text-xl md:text-2xl text-gray-600 max-w-3xl mb-10"
-//         >
-//           Simplify HR and Workday queries with an intelligent assistant that understands your SOPs, policies, and community knowledge base.
-//         </motion.p>
-//         {!user && (
-//           <motion.div
-//             initial={{ opacity: 0 }}
-//             animate={{ opacity: 1 }}
-//             transition={{ delay: 0.6, duration: 0.8 }}
-//             className="flex gap-4"
-//           >
-//             <Link to="/login">
-//               <Button className="px-8 py-3 text-lg">Get Started</Button>
-//             </Link>
-//             <a
-//               href="#features"
-//               className="px-8 py-3 text-lg rounded-md border border-gray-300 hover:bg-gray-50 transition"
-//             >
-//               Learn More
-//             </a>
-//           </motion.div>
-//         )}
-//       </motion.header>
-
-//       {/* Features */}
-//       <section id="features" className="py-32 bg-gray-50">
-//         <div className="max-w-6xl mx-auto px-6">
-//           <motion.h2
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 0.6 }}
-//             className="text-4xl font-bold text-center mb-20"
-//           >
-//             Why Teams Choose Jarvis
-//           </motion.h2>
-//           <div className="grid md:grid-cols-3 gap-12">
-//             <FeatureCard icon={<Brain className="w-10 h-10" />} title="Smart Knowledge Retrieval" desc="Jarvis understands Workday SOPs and community docs to answer HR questions instantly." />
-//             <FeatureCard icon={<MessageSquare className="w-10 h-10" />} title="Conversational Interface" desc="Ask questions naturally, and Jarvis responds with step-by-step guidance." />
-//             <FeatureCard icon={<Lock className="w-10 h-10" />} title="Secure & Tenant-Specific" desc="Each company has its own secure workspace — no data leakage across tenants." />
-//             <FeatureCard icon={<Clock className="w-10 h-10" />} title="Save Time" desc="Reduce repetitive queries to HR teams. Employees get instant answers." />
-//             <FeatureCard icon={<Users className="w-10 h-10" />} title="Manager Dashboards" desc="Managers track onboarding, compliance, and team progress from one place." />
-//             <FeatureCard icon={<Brain className="w-10 h-10" />} title="Always Improving" desc="Built on modern LLMs, Jarvis keeps learning and adapting to your org’s SOPs." />
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* CTA */}
-//       <motion.footer
-//         initial={{ opacity: 0, y: 40 }}
-//         whileInView={{ opacity: 1, y: 0 }}
-//         viewport={{ once: true }}
-//         transition={{ duration: 0.8 }}
-//         className="py-32 text-center bg-black text-white"
-//       >
-//         <h2 className="text-4xl font-bold mb-6">Ready to get started?</h2>
-//         <p className="text-lg text-gray-300 mb-10">
-//           Join companies saving hours of HR work every week.
-//         </p>
-//         <Link to={user ? "/app" : "/login"}>
-//           <Button className="px-8 py-3 text-lg bg-white text-black hover:bg-gray-100">
-//             {user ? "Go to Dashboard" : "Try Jarvis Today"}
-//           </Button>
-//         </Link>
-//       </motion.footer>
-//     </div>
-//   );
-// }
-
-// function FeatureCard({ icon, title, desc }) {
-//   return (
-//     <motion.div
-//       initial={{ opacity: 0, y: 40 }}
-//       whileInView={{ opacity: 1, y: 0 }}
-//       viewport={{ once: true }}
-//       transition={{ duration: 0.6 }}
-//       className="bg-white rounded-xl shadow p-8"
-//     >
-//       <div className="mb-6 text-black">{icon}</div>
-//       <h3 className="text-xl font-semibold mb-3">{title}</h3>
-//       <p className="text-gray-600 text-base">{desc}</p>
-//     </motion.div>
-//   );
-// }
 
 import { Button } from "../components/ui/Button";
 import { Link } from "react-router-dom";
@@ -153,7 +13,7 @@ export default function Landing() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 shadow-sm bg-white sticky top-0 z-50 border-b">
         <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-          Ellie
+          Jarvis
         </h1>
         <div className="flex gap-4">
           {!user ? (
@@ -256,7 +116,7 @@ export default function Landing() {
             className="text-center mb-20"
           >
             <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Why Teams Choose Ellie
+              Why Teams Choose Jarvis
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Stop searching through documentation. Get instant, accurate answers to your Workday questions.
@@ -272,7 +132,7 @@ export default function Landing() {
             <FeatureCard
               icon={<Brain className="w-10 h-10" />}
               title="Smart Context Understanding"
-              desc="Ellie understands your company's Workday setup, SOPs, and policies. Answers are tailored to your organization's specific configuration."
+              desc="Jarvis understands your company's Workday setup, SOPs, and policies. Answers are tailored to your organization's specific configuration."
             />
             <FeatureCard
               icon={<Shield className="w-10 h-10" />}
@@ -330,7 +190,7 @@ export default function Landing() {
       transition-all duration-200
     "
   >
-    {user ? "Go to Dashboard" : "Start Using Ellie Today"}
+    {user ? "Go to Dashboard" : "Start Using Jarvis Today"}
   </Button>
 </Link>
         </div>

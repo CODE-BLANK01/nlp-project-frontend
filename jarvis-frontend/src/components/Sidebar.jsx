@@ -67,8 +67,8 @@ export default function Sidebar() {
 
   const links = [
     { to: "/app", label: "Dashboard", icon: <Home className="w-5 h-5" /> },
-    { to: "/knowledge", label: "Knowledge Base", icon: <BookOpen className="w-5 h-5" /> },
-    { to: "/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
+    // { to: "/knowledge", label: "Knowledge Base", icon: <BookOpen className="w-5 h-5" /> },
+    // { to: "/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
   ];
 
   return (
@@ -78,7 +78,7 @@ export default function Sidebar() {
         onClick={() => navigate("/")}
         className="text-2xl font-bold mb-12 px-3 text-left text-white hover:text-blue-100 transition"
       >
-        Ellie.ai
+        Jarvis
       </button>
 
       {/* Navigation */}
